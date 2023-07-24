@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="productshowcase">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>PROJECTS</h1>
+            </div>
+
+
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{% static 'images/projecticon.png' %}" alt="OSH Blog Icon" class="img-fluid img-responsive">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="osunstartupconf">
+    <div class="my_container">
+        <div class="row">
+            {% for project in projects %}
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="col-lg-4">
+                <h1>{{project.title}}</h1>
+                <p>{{project.content|slice:800|safe}}</p>
+                <a class="btn btn-primary" href="{{project.get_absolute_url}}">Learn More</a>
+            </div>
+            <div class="col-lg-8">
+                <img src="{{project.image.url}}" class="img-responsive img-fluid">
+            </div>
+            {% else %}
+            <div class="col-lg-8">
+                <img src="{{project.image.url}}" class="img-responsive img-fluid">
+            </div>
+            <div class="col-lg-4">
+                <h1>{{project.title}}</h1>
+                <p>{{project.content|slice:800|safe}}</p>
+                <a class="btn btn-primary" href="{{project.get_absolute_url}}">Learn More</a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

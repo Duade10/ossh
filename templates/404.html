@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="error404">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <img src="{% static 'images/404-error.png' %}" alt="OSH 404 Page" class="img-fluid img-responsive">
+                <p>Page not found</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

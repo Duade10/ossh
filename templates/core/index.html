@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="homeshowcase" class="my_container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>{{page_data.hero_text|safe}}</h1>
+            <a href="{% url 'core:about' %}" data-aos="flip-up">Learn More</a>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+            <img src="{{page_data.hero_image.url}}" alt="OSH homeicon" class="img-responsive img-fluid">
+        </div>
+    </div>
+</section>
+<section id="homeslider">
+    <div class="my_container">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for carousel_image in carousel_images %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img class="d-block w-100 h-10" src="{{carousel_image.file.url}}" alt="First slide">
+                    <div class="carousel-caption d-md-block">
+                        <h5>{{carousel_image.text}}</h5>
+                        {% if carousel_image.link %}
+                        <a href="{{carousel_image.link}}">Join Now</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="hometeam">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>{{page_data.team_text}}</h3>
+                <a data-aos="flip-up">Meet the Team</a>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up-left">
+                <img src="{{page_data.team_image.url}}" alt="OSH Team icon" class="img-responsive img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="homeorg">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-7" data-aos="fade-up-right">
+                <img src="{{page_data.section_3_image.url}}" alt="OSH Team icon" class="img-responsive img-fluid">
+
+            </div>
+
+            <div class="col-lg-5 textz">
+                <h3>{{page_data.section_3_text}}</h3>
+                <a data-aos="flip-up">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

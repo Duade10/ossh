@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {% if request.GET.command == "verification" %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <h2 class="mb-4">{{request.GET.email}}</h2>
+            <p>Click to download ticket:
+                <a class="btn btn-warning" href="#" onclick="printPage(`/events/ticket/{{request.GET.email}}`)">Print
+                    Ticket</a>
+            </p>
+
+            {% else %}
+            <h2 class="mb-4">Event Registration</h2>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <form action="{% url 'events:registration' event.slug %}" method="POST">
+                {% csrf_token %}
+                <!-- Event (Disabled Field) -->
+                <div class="form-group">
+                    <label for="id_event">Event</label>
+                    {{form.event}}
+                </div>
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="id_full_name">Full Name</label>
+                    {{form.full_name}}
+                </div>
+                <!-- Email Address -->
+                <div class="form-group">
+                    <label for="id_email_address">Email Address</label>
+                    {{form.email_address}}
+                    {% if form.email_address.errors %}
+                    <div class="alert alert-warning" role="alert">
+                        Error: {{form.email_address.errors}}
+                        Email might have been not been confirmed. Click on the
+                        <a href="{% url 'events:send_confirm' form.email_address.value %}">link</a> to send a email
+                        confirmation
+                        message
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Organization -->
+                <div class="form-group">
+                    <label for="id_organization">Organization (Optional)</label>
+                    {{form.organization}}
+                </div>
+
+                <!-- Participant Type -->
+                <div class="form-group">
+                    <label for="id_participant_type">Participant Type</label>
+                    {{form.participant_type}}
+                </div>
+
+                <!-- Number of Participants -->
+                <div class="form-group">
+                    <label for="id_number_of_participants">Number of Participants <span class="text-danger">(Required
+                            for
+                            Teams)</span></label>
+                    {{form.number_of_participants}}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-block btn-outline-danger">Register</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+    function printPage(url) {
+        var printWindow = window.open(url, '_blank');
+        printWindow.addEventListener('load', function () {
+            printWindow.print();
+        });
+    }
+
+    function 
+</script>
+{% endblock content %}

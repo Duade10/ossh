@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-jazzmin = "*"
+pillow = "*"
+django-tinymce4-lite = "*"
+django-froala-editor = "*"
+django-multiselectfield = "*"
+reportlab = "*"
+qrcode = {extras = ["pil"], version = "*"}
+whitenoise = "*"
+python-dotenv = "*"
+
+[dev-packages]
+isort = "*"
+flake8 = "*"
+black = "*"
+
+[requires]
+python_version = "3.10"

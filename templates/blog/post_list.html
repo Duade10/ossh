@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .card {
+        border: none !important;
+    }
+</style>
+
+<section id="blogshowcase">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1>BLOG</h1>
+            </div>
+
+            <div class="col-lg-4">
+            </div>
+
+
+            <div class="col-lg-4" data-aos="fade-left">
+                <img src="{% static 'images/blogicon.png' %}" alt="OSH Blog Icon" class="img-fluid img-responsive">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="blogposts">
+    <div class="my_container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{post.image.url}}" alt="blogpost" class="card-img-top shadow-sm">
+                    <div class="card-body">
+                        <small class="text-muted">{{post.created_at|timesince}} ago</small>
+                        <h5 class="card-title mt-2">{{post.title}}</h5>
+                        <p class="card-text">{{post.content|slice:300|safe}}</p>
+                        <a href="{{post.get_absolute_url}}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

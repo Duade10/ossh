@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="aboutshowcase">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-5">
+                <h1>ABOUT <br> US</h1>
+            </div>
+
+
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{% static 'images/abouticon.png' %}" alt="OSH Blog Icon" height="400"
+                    class="img-responsive img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+<div class="abouttext">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>{{page_data.main_text|safe}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="aboutmain">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-4 firstsecabout">
+                <div class="aboutvision">
+                    <h5>VISION</h5>
+                    <p>{{page_data.vision}}</p>
+                </div>
+
+                <div class="aboutvision">
+                    <h5>Mission</h5>
+                    <p>{{page_data.mission}}</p>
+                </div>
+
+                <div class="aboutvision">
+                    <h5>OBJECTIVE</h5>
+                    <p>{{page_data.objective}}</p>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row" data-aos="zoom-in-up">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                        <img src="{% static 'images/startupimgmain.jpg' %}" alt="OSH About"
+                            class="img-fluid img-responsive thepic">
+                        <h6>JOSHUA O. BABAWALE</h6>
+                        <h6>Team Lead</h6>
+                        <span><img src="{% static 'images/aboutgithub.png' %}" alt="aboutgithub"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutbehance.png' %}" alt="aboutbehance"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutlinkedin.png' %}" alt="aboutlinkedin"
+                                class="img-responsive img-fluid"></span>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <h5>LOCATION</h5>
+                        <p>Osun Startup Hub,
+                            Tech Drive way,
+                            Osogbo,
+                            Osun State.</p>
+                    </div>
+                </div>
+                <div class="row" data-aos="zoom-in-up">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                        <img src="{% static 'images/startupimgmain.jpg' %}" alt="OSH About"
+                            class="img-fluid img-responsive thepic">
+                        <h6>JOSHUA O. BABAWALE</h6>
+                        <h6>Team Lead</h6>
+                        <span><img src="{% static 'images/aboutgithub.png' %}" alt="aboutgithub"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutbehance.png' %}" alt="aboutbehance"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutlinkedin.png' %}" alt="aboutlinkedin"
+                                class="img-responsive img-fluid"></span>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <h5>MAIL US</h5>
+                        <p>osunstartuphub@
+                            gmail.com</p>
+                    </div>
+                </div>
+                <div class="row" data-aos="zoom-in-up">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                        <img src="{% static 'images/startupimgmain.jpg' %}" alt="OSH About"
+                            class="img-fluid img-responsive thepic">
+                        <h6>JOSHUA O. BABAWALE</h6>
+                        <h6>Team Lead</h6>
+                        <span><img src="{% static 'images/aboutgithub.png' %}" alt="aboutgithub"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutbehance.png' %}" alt="aboutbehance"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutlinkedin.png' %}" alt="aboutlinkedin"
+                                class="img-responsive img-fluid"></span>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <span><img src="{% static 'images/logo.png' %}" alt="aboutgithub"
+                                class="img-responsive img-fluid aboutlogopic"></span>
+                    </div>
+                </div>
+
+                <div class="row" data-aos="zoom-in-up">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                        <img src="{% static 'images/startupimgmain.jpg' %}" alt="OSH About"
+                            class="img-fluid img-responsive thepic">
+                        <h6>JOSHUA O. BABAWALE</h6>
+                        <h6>Team Lead</h6>
+                        <span><img src="{% static 'images/aboutgithub.png' %}" alt="aboutgithub"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutbehance.png' %}" alt="aboutbehance"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutlinkedin.png' %}" alt="aboutlinkedin"
+                                class="img-responsive img-fluid"></span>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <span><img src="{% static 'images/logo.png' %}" alt="aboutgithub"
+                                class="img-responsive img-fluid aboutlogopic"></span>
+                    </div>
+                </div>
+
+                <div class="row" data-aos="zoom-in-up">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                        <img src="{% static 'images/startupimgmain.jpg' %}" alt="OSH About"
+                            class="img-fluid img-responsive thepic">
+                        <h6>JOSHUA O. BABAWALE</h6>
+                        <h6>Team Lead</h6>
+                        <span><img src="{% static 'images/aboutgithub.png' %}" alt="about github"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutbehance.png' %}" alt="about behance"
+                                class="img-responsive img-fluid"></span>
+                        <span><img src="{% static 'images/aboutlinkedin.png' %}" alt="about linkedin"
+                                class="img-responsive img-fluid"></span>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <span><img src="{% static 'images/logo.png' %}" alt="aboutgithub"
+                                class="img-responsive img-fluid aboutlogopic"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4 text-center">
+                        <a data-aos="flip-up">See More</a>
+                    </div>
+
+                    <div class="col-lg-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

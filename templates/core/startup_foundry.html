@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="startupshowcase">
+    <div class="my_container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>STARTUP FOUNDRY</h1>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{% static 'images/projecticon.png' %}" alt="OSH Blog Icon" class="img-fluid img-responsive">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="startupmain">
+    <div class="container">
+        <p>{{page_data.content|safe}}</p>
+    </div>
+</section>
+{% endblock %}
