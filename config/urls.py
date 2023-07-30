@@ -25,7 +25,10 @@ urlpatterns = [
     path("blog/", include("blog.urls", namespace="blog")),
     path("events/", include("events.urls", namespace="events")),
     path("projects/", include("projects.urls", namespace="projects")),
-    path("froala_editor/", include("froala_editor.urls")),
+    path("tinymce/", include("tinymce.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# https://hooks.slack.com/services/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

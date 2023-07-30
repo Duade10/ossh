@@ -14,7 +14,8 @@
             {% endif %}
             <h2 class="mb-4">{{request.GET.email}}</h2>
             <p>Click to download ticket:
-                <a class="btn btn-warning" href="#" onclick="printPage(`/events/ticket/{{request.GET.email}}`)">Print
+                <a class="btn btn-warning" href="#"
+                    onclick="printPage(`/events/ticket/{{request.GET.eid}}/{{request.GET.email}}`)">Print
                     Ticket</a>
             </p>
 
@@ -88,7 +89,5 @@
             printWindow.print();
         });
     }
-
-    function 
 </script>
 {% endblock content %}

@@ -1,5 +1,7 @@
 from django.contrib import admin
 from . import models
+from django.db.models import TextField
+from tinymce.widgets import TinyMCE
 
 
 class EventImageInline(admin.TabularInline):
@@ -8,9 +10,13 @@ class EventImageInline(admin.TabularInline):
 
 @admin.register(models.Event)
 class EventAdmin(admin.ModelAdmin):
+    list_display = ["title", "location", "start_time", "end_time", "is_active"]
     inlines = [
         EventImageInline,
     ]
+    formfield_overrides = {
+        TextField: {"widget": TinyMCE()},
+    }
 
 
 @admin.register(models.Registration)

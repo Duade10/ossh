@@ -1,6 +1,5 @@
 from django.db import models
 from core.models import AbstractTimestampModel
-from froala_editor.fields import FroalaField
 from django.utils.text import slugify
 from django.urls import reverse
 
@@ -16,7 +15,7 @@ class Project(AbstractTimestampModel):
     image = models.ImageField(upload_to="projects/")
     title = models.CharField(max_length=3500)
     slug = models.SlugField(null=True, blank=True)
-    content = FroalaField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.title

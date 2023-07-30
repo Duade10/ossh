@@ -1,6 +1,6 @@
 from django.contrib import admin
-from froala_editor.fields import FroalaField
-from froala_editor.widgets import FroalaEditor
+from tinymce.widgets import TinyMCE
+from django.db.models import TextField
 
 from . import models
 
@@ -8,5 +8,5 @@ from . import models
 @admin.register(models.Project)
 class ProjectAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        FroalaField: {"widget": FroalaEditor},
+        TextField: {"widget": TinyMCE()},
     }

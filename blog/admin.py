@@ -1,11 +1,11 @@
 from django.contrib import admin
 from . import models
-from froala_editor.fields import FroalaField
-from froala_editor.widgets import FroalaEditor
+from django.db.models import TextField
+from tinymce.widgets import TinyMCE
 
 
 @admin.register(models.Post)
 class PostAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        FroalaField: {"widget": FroalaEditor},
+        TextField: {"widget": TinyMCE()},
     }

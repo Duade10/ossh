@@ -8,7 +8,6 @@ django = "*"
 django-jazzmin = "*"
 pillow = "*"
 django-tinymce4-lite = "*"
-django-froala-editor = "*"
 django-multiselectfield = "*"
 reportlab = "*"
 qrcode = {extras = ["pil"], version = "*"}

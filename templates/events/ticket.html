@@ -19,35 +19,50 @@
 <body>
 
     <section id="ticket" class="my-5">
-        <div class="container p-4 border rounded" style="border-color: #FFC100;">
-            <div class="row">
-                <div class="col-sm-4 text-center">
-                    <img src="{{reg.qr_code.url}}" alt="qrcode" class="img-fluid img-responsive">
+        <div class="container-fluid p-4">
+            <div class="card shadow">
+                <div class="image-container">
+                    <img src="{{reg.event.image.url}}" class="card-img" alt="...">
+                    <div class="dark-overlay"></div>
                 </div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-7">
-                    <form>
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" value="{{reg.full_name}}" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Event</label>
-                            <input type="email" class="form-control" id="email" value="{{reg.event.title}}" disabled>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="date">Event Date</label>
-                                <input type="text" class="form-control" id="date" value="{{reg.event.start_time}}"
-                                    disabled>
+                <div class="card-img-overlay">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <img style="width: 80px;" src="{% static 'images/logo.png' %}" alt="">
+                            <h1 class="card-title mt-0">{{reg.event.title}}</h1>
+                            <div class="row mt-5">
+                                <div class="col-md-6">
+                                    <p class="card-text"><span class="font-weight-light">Name: </span>{{reg.full_name}}
+                                    </p>
+                                </div>
+
+                                {% if reg.organization %}
+                                <div class="col-md-6">
+                                    <p class="card-text"><span class="font-weight-light">Organization:
+                                        </span>{{reg.organization|capfirst}}</p>
+                                </div>
+                                {% endif %}
+                                <div class="col-md-6">
+                                    <p class="card-text"><span class="font-weight-light">Registered At:
+                                        </span>{{reg.created_at}}
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text"><span class="font-weight-light">Ticket
+                                            Start Date/Time: </span>{{reg.event.start_time}}
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text"><span class="font-weight-light">Ticket
+                                            End Date/Time: </span>{{reg.event.end_time}}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="registeredDate">Date Registered</label>
-                                <input type="text" class="form-control" id="registeredDate" value="{{reg.created_at}}"
-                                    disabled>
-                            </div>
                         </div>
-                    </form>
+                        <div class="col-md-4">
+                            <img class="qr_code" src="{{reg.qr_code.url}}" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,7 +81,7 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script src="main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

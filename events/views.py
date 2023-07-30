@@ -66,11 +66,11 @@ class SendRegistrationEmail(View):
 
 
 class ConfirmRegistrationEmail(View):
-    def get(self, request, uidb64, *args, **kwargs):
+    def get(self, request, uidb64, eid, *args, **kwargs):
         try:
             uid = urlsafe_base64_decode(uidb64).decode()
             registered = models.Registration.objects.get(pk=uid)
-        except (TypeError, ValueError, OverflowError, models.Registration.DoesNotExist):
+        except (TypeError, ValueError, OverflowError, models.Registration.DoesNotExist, models.Event.DoesNotExist):
             registered = None
 
         if registered is not None:
@@ -80,11 +80,11 @@ class ConfirmRegistrationEmail(View):
             registered.is_email_confirm = True
             registered.save()
         return redirect(
-            f"/events/register/{registered.event.slug}?command=verification&email={registered.email_address}"
+            f"/events/register/{registered.event.slug}?command=verification&email={registered.email_address}&eid={registered.event.id}"
         )
 
 
 class Ticket(View):
-    def get(self, request, email, *args, **kwargs):
-        reg = models.Registration.objects.get(email_address=email)
+    def get(self, request, event_id, email, *args, **kwargs):
+        reg = models.Registration.objects.get(email_address=email, event__id=event_id)
         return render(request, "events/ticket.html", {"reg": reg})

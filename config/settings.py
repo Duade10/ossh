@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -45,9 +45,7 @@ CUSTOM_APPS = [
     "projects.apps.ProjectsConfig",
 ]
 
-THIRDPARTY_APPS = [
-    "froala_editor",
-]
+THIRDPARTY_APPS = ["tinymce"]
 
 INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRDPARTY_APPS
 
@@ -86,7 +84,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-if not DEBUG:
+if DEBUG:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -177,3 +175,11 @@ MESSAGE_LEVELS = {
 
 handler404 = "core.views.handle404"
 handler500 = "core.views.handle500"
+
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": 360,
+    "width": 600,
+    "cleanup_on_startup": True,
+    "custom_undo_redo_levels": 20,
+}

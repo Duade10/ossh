@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from froala_editor.fields import FroalaField
 
 from core.models import AbstractTimestampModel
 
@@ -15,7 +14,7 @@ class BlogPageBanner(AbstractTimestampModel):
 class Post(AbstractTimestampModel):
     image = models.ImageField(upload_to="blog/")
     title = models.CharField(max_length=2500)
-    content = FroalaField()
+    content = models.TextField()
 
     class Meta:
         verbose_name = "Post"

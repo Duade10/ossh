@@ -12,7 +12,6 @@ from django.utils.encoding import force_bytes
 from django.utils.html import strip_tags
 from django.utils.http import urlsafe_base64_encode
 from django.utils.text import slugify
-from froala_editor.fields import FroalaField
 from PIL import Image, ImageDraw
 
 from core.models import AbstractTimestampModel
@@ -22,7 +21,7 @@ class Event(AbstractTimestampModel):
     image = models.ImageField(upload_to="event/main/")
     title = models.CharField(max_length=2500)
     slug = models.SlugField(blank=True, null=True)
-    description = FroalaField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     location = models.CharField(max_length=2500, blank=True, null=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
@@ -92,10 +91,11 @@ class Registration(AbstractTimestampModel):
         current_site = get_current_site(request)
         domain = current_site
         uid = urlsafe_base64_encode(force_bytes(self.pk))
+        eid = urlsafe_base64_encode(force_bytes(self.event.pk))
 
         html_message = render_to_string(
             "events/mail/sign_up_email_confirmation.html",
-            {"domain": domain, "uidb64": uid, "full_name": self.full_name},
+            {"domain": domain, "uidb64": uid, "eid": eid, "full_name": self.full_name},
         )
         send_mail(
             "Activate your Account",

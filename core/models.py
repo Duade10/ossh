@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from froala_editor.fields import FroalaField
 
 
 class AbstractTimestampModel(models.Model):
@@ -44,7 +43,7 @@ class IndexCarouselImage(AbstractTimestampModel):
 
 class AboutData(AbstractTimestampModel):
     banner = models.ImageField(_("About Us Page Banner"), upload_to="about/", blank=True, null=True)
-    main_text = FroalaField(_("Main Text"))
+    main_text = models.TextField(_("Main Text"))
     vision = models.TextField(_("OSSH Vision"))
     mission = models.TextField(_("OSSH Mission"))
     objective = models.TextField(_("OSSH Objective"))
@@ -59,7 +58,7 @@ class AboutData(AbstractTimestampModel):
 
 class FoundryDataContent(AbstractTimestampModel):
     banner = models.ImageField(_("Startup Foundry Page Banner"), upload_to="foundry/", blank=True, null=True)
-    content = FroalaField()
+    content = models.TextField()
 
     class Meta:
         verbose_name = "Foundry Page Content"
@@ -67,3 +66,10 @@ class FoundryDataContent(AbstractTimestampModel):
 
     def __str__(self):
         return "Startup Foundry Data Content"
+
+
+class TeamMember(AbstractTimestampModel):
+    name = models.CharField(max_length=2500)
+    skill = models.CharField(max_length=500)
+    role = models.CharField(max_length=500)
+    image = models.ImageField(upload_to="team/members", blank=True, null=True)

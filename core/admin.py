@@ -1,6 +1,6 @@
 from django.contrib import admin
-from froala_editor.fields import FroalaField
-from froala_editor.widgets import FroalaEditor
+from tinymce.widgets import TinyMCE
+from django.db.models import TextField
 
 from . import models
 
@@ -22,7 +22,7 @@ class IndexDataAdmin(admin.ModelAdmin):
 @admin.register(models.AboutData)
 class AdminDataAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        FroalaField: {"widget": FroalaEditor},
+        TextField: {"widget": TinyMCE()},
     }
 
     def has_add_permission(self, request) -> bool:
@@ -32,8 +32,13 @@ class AdminDataAdmin(admin.ModelAdmin):
 @admin.register(models.FoundryDataContent)
 class FoundryDataAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        FroalaField: {"widget": FroalaEditor},
+        TextField: {"widget": TinyMCE()},
     }
 
     def has_add_permission(self, request) -> bool:
         return False
+
+
+@admin.register(models.TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ("name", "skill", "role")
