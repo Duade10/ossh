@@ -15,8 +15,8 @@ class IndexImageInline(admin.TabularInline):
 class IndexDataAdmin(admin.ModelAdmin):
     inlines = [IndexImageInline]
 
-    def has_add_permission(self, request) -> bool:
-        return False
+    # def has_add_permission(self, request) -> bool:
+    #     return False
 
 
 @admin.register(models.AboutData)

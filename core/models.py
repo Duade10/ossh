@@ -47,6 +47,8 @@ class AboutData(AbstractTimestampModel):
     vision = models.TextField(_("OSSH Vision"))
     mission = models.TextField(_("OSSH Mission"))
     objective = models.TextField(_("OSSH Objective"))
+    location = models.CharField(_("OSSH Location"), max_length=150, blank=True, null=True)
+    email = models.CharField(_("OSSH EMAIL"), max_length=50, blank=True, null=True)
 
     class Meta:
         verbose_name = "About Us Page Content"

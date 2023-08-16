@@ -43,6 +43,7 @@ CUSTOM_APPS = [
     "blog.apps.BlogConfig",
     "events.apps.EventsConfig",
     "projects.apps.ProjectsConfig",
+    "team.apps.TeamConfig",
 ]
 
 THIRDPARTY_APPS = ["tinymce"]
