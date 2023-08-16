@@ -19,5 +19,5 @@ This repository contains the Django backend for the Osun State Start Up Hub webs
 - 
 ## Credits
 
-- Olajide Favour - Designer
+- Favour Olajide (FavourtheDev) - Frontend Designer
 - Otunla Oluwatimilehin Isaac (Duade) - Backend
